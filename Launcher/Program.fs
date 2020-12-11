@@ -70,9 +70,8 @@ let view (model: Model) (dispatch: Message -> unit) =
                 tr [] [
                     forEach [0..20]
                     <| fun x ->
-                        empty
-//                        let index = (y * 20) + x
-//                        td [] [ code [] [ textf "[ %d ]" model.xs.[index] ] ]
+                        let index = (y * 20) + x
+                        td [] [ code [] [ textf "[ %d ]" model.xs.[index] ] ]
                 ]
         ]
     ]
