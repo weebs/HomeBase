@@ -20,11 +20,36 @@ let initModel (fw: IFileWatcher) (pg: ProgramComponent<_,_>) =
     { filePath = "/home/dave/Documents/main.org"
       fileLines = System.IO.File.ReadAllLines("/home/dave/Documents/main.org") }, Cmd.ofSub sub
 
+let lineStyle (line: string) : Attr =
+    if line.StartsWith("*") then
+        attr.style "font-weight: bold"
+    elif line.StartsWith("TODO") then
+        attr.style "color: green"
+    else
+        attr.style ""
+        
+let viewLine (line: string) =
+    match line.Split(char " ").[0] with
+    | "TODO" ->
+        span [] [
+            code [ attr.style "color: red" ] [ text "TODO" ]
+            code [] [ text <| line.Substring(4) ]
+        ]
+    | "DONE" ->
+        span [] [
+            code [ attr.style "color: green" ] [ text "DONE" ]
+            code [] [ text <| line.Substring(4) ]
+        ]
+        
+    | _ ->
+        code [ lineStyle line ] [ text line ]
+        
 let view (model: AppModel) _ =
+    // todo: show a sidebar of outline (* ** *** **** etc)
     div [] [
         forEach model.fileLines <| fun line ->
             p [] [
-                code [] [ text line ]
+                viewLine line
             ]
     ]
     
