@@ -1,8 +1,11 @@
 module Launcher.Programs.OrgMode.Models
 
+open System.IO
 open Bolero
 
-type AppMsg = unit
+type AppMsg =
+    | DirectoryChanged of FileSystemEventArgs
 
 type AppModel =
-    { filePath: string }
+    { filePath: string
+      fileLines: string[] }

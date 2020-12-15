@@ -3,6 +3,8 @@
 open Elmish
 open System
 open Launcher
+open Launcher.Programs.Models
+open Launcher.Services
 open WebWindows.Blazor
 open Bolero.Html
 open Microsoft.Extensions.DependencyInjection
@@ -28,7 +30,6 @@ type Factory() =
         member this.CreateLogger(name) = Logger() :> ILogger
     interface IDisposable with
         member this.Dispose() = ()
-        
 type Startup() =
 
     // This method gets called by the runtime. Use this method to add services to the container.
@@ -39,6 +40,8 @@ type Startup() =
         |> ignore
         services
             .AddSingleton<ILoggerFactory>(new Factory())
+            .AddSingleton<Foo>(Foo())
+            .AddSingleton<IFileWatcher>(FileWatcher())
         |> ignore
     member this.Configure(app: DesktopApplicationBuilder) =
         app.AddComponent<Launcher.Programs.OrgMode.Program.Component>("app")

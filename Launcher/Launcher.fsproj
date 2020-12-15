@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Services\FileWatcher.fs" />
         <Compile Include="React.fs" />
         <Compile Include="Programs\Models.fs" />
         <Compile Include="Programs\MovingBall.fs" />
