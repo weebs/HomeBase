@@ -22,7 +22,6 @@ type Logger() =
         member this.IsEnabled(level) = true
         member this.Log(level, eventId, state, ex, formatter) = ()
         member this.BeginScope(state) = new D() :> IDisposable
-    
         
 type Factory() =
     interface Microsoft.Extensions.Logging.ILoggerFactory with
