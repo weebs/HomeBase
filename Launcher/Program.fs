@@ -43,7 +43,7 @@ type Startup() =
             .AddSingleton<IFileWatcher>(FileWatcher())
         |> ignore
     member this.Configure(app: DesktopApplicationBuilder) =
-        app.AddComponent<Launcher.Programs.OrgMode.Program.Component>("app")
+        app.AddComponent<Home.Component>("app")
 //        app.AddComponent<Purple.Burps.Client.Main.MyApp>("app")
 //        app.AddComponent<MovingBall.SimpleApp>("app")
 

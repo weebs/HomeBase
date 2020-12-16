@@ -16,6 +16,7 @@
             <MyriadFile>Programs\MovingBall.fs</MyriadFile>
             <MyriadNameSpace>Test</MyriadNameSpace>
         </None>
+        <Compile Include="Home.fs" />
         <Compile Include="Program.fs" />
         
         <Content Include="wwwroot\index.html">
