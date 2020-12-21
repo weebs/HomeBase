@@ -2,7 +2,6 @@ module Launcher.Programs.OrgMode.Program
 
 open Bolero
 open Bolero.Html
-open Launcher.Programs.Models
 open Launcher.Services
 open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop

@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="Test.fsx" />
         <Compile Include="Services\FileWatcher.fs" />
         <Compile Include="React.fs" />
         <Compile Include="Programs\Models.fs" />
@@ -18,13 +19,13 @@
             <MyriadNameSpace>Test</MyriadNameSpace>
         </None>
         <Compile Include="Home.fs" />
-        <Compile Include="Program.fs" />
         
         <Content Include="wwwroot\index.html">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         
         <Content Include="Javascript\common.js" />
+        <Compile Include="Program.fs" />
     </ItemGroup>
     
     <ItemGroup>

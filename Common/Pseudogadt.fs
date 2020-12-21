@@ -26,7 +26,8 @@ type Msg =
     | A of int * Return<string>
     | B of {| a: int; b: int |} * Return<decimal>
 
-let inline get (router: Router<'a>) (request: ('input * Return<'ret>) -> 'a) (input: 'input) : 'ret =
+// todo: needs to be inline, but also accesses private/internal stuff
+let get (router: Router<'a>) (request: ('input * Return<'ret>) -> 'a) (input: 'input) : 'ret =
     let f ret = Response.create ret
     let msg = request (input, f)
     let response = router msg
