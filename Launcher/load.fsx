@@ -198,6 +198,8 @@
 #load "Home.fs"
 #load "Program.fs"
 
+#I @"/home/dave/code/HomeBase/Launcher/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native"
+
 open System
 open WebWindows.Blazor
 
