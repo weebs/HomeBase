@@ -12,6 +12,7 @@
         <Compile Include="Programs\MovingBall.fs" />
         <Compile Include="Programs\OrgMode\Models.fs" />
         <Compile Include="Programs\OrgMode\Program.fs" />
+        <Compile Include="Programs\MovingLineSvg.fs" />
         <None Include="Generated.fs">
             <MyriadFile>Programs\MovingBall.fs</MyriadFile>
             <MyriadNameSpace>Test</MyriadNameSpace>

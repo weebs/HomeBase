@@ -1,4 +1,5 @@
-﻿// Learn more about F# at http://fsharp.org
+﻿module Program
+// Learn more about F# at http://fsharp.org
 
 open Elmish
 open System

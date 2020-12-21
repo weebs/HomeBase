@@ -3,7 +3,7 @@ module Launcher.Home
 open System.Diagnostics
 open Bolero
 open Bolero.Html
-open Launcher.Programs.Models
+open Launcher.Programs
 open Launcher.Services
 open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
@@ -14,30 +14,47 @@ type Page =
     | Home
     | MovingBall
     | OrgMode
+    | MovingLine
     
-type AppModel = { Page: Page; count: int }
+type AppModel = { page: Page; count: int }
 
 type AppMsg =
     | SwitchPage of Page
     | Inc
 
-let initModel _ = { Page = Home; count = 0 }, []
+let initModel _ = { page = Home; count = 0 }, []
 
 let update msg model =
     match msg with
-    | SwitchPage p -> { model with Page = p }, []
+    | SwitchPage p -> { model with page = p }, []
     | Inc -> { model with count = model.count + 1 }, []
 
 let view model dispatch =
-    match model.Page with
-    | Home -> a [ attr.href "#"; on.click (fun _ -> dispatch << SwitchPage <| OrgMode) ] [ text "Org Mode" ]
+    match model.page with
+    | Home ->
+        ul [] [
+            li [] [
+                a [ attr.href "#"
+                    on.click (fun _ -> dispatch << SwitchPage <| OrgMode) ] [
+                    text "Org Mode"
+                ]
+            ]
+            li [] [
+                a [ attr.href "#"
+                    on.click (fun _ -> dispatch << SwitchPage <| MovingLine) ] [
+                    text "Moving Line"
+                ]
+            ]
+        ]
     | OrgMode ->
         concat [
             p [] [ a [ attr.href "#"; on.click (fun _ -> dispatch << SwitchPage <| Home) ] [ text "Home" ] ]
             button [ on.click (fun _ -> dispatch Inc) ] [ textf "inc: %d" model.count ]
-            Node.Component(typeof<Launcher.Programs.OrgMode.Program.Component>, [], [])
+            Node.Component(typeof<Programs.OrgMode.Program.Component>, [], [])
         ]
-    | _ -> code [] [ text "Unknown" ]
+    | MovingBall -> code [] [ text "todo: moving ball" ]
+    | MovingLine -> Node.Component(typeof<MovingLineSvg.Program>, [], [])
+//    | _ -> code [] [ text "Unknown" ]
 
 type Component() =
     inherit ProgramComponent<AppModel, AppMsg>()
