@@ -22,7 +22,13 @@ type AppMsg =
     | SwitchPage of Page
     | Inc
 
-let initModel _ = { page = Home; count = 0 }, []
+let initModel (p: ProgramComponent<_,_>) =
+    let f _ = 
+        async {
+            let! x = p.JSRuntime.InvokeAsync<string>("prompt", "enter something").AsTask() |> Async.AwaitTask
+            do! p.JSRuntime.InvokeVoidAsync("console.log", x).AsTask() |> Async.AwaitTask
+        }
+    { page = Home; count = 0 }, Cmd.OfAsync.perform f () (fun _ -> Inc)
 
 let update msg model =
     match msg with
@@ -56,6 +62,11 @@ let view model dispatch =
     | MovingLine -> Node.Component(typeof<MovingLineSvg.Program>, [], [])
 //    | _ -> code [] [ text "Unknown" ]
 
+type IWKJSRuntime =
+    inherit IJSRuntime
+    
+    abstract member Invoke: identifier: string -> 't
+
 type Component() =
     inherit ProgramComponent<AppModel, AppMsg>()
     
@@ -65,4 +76,5 @@ type Component() =
     [<Inject>]
     member val fw: IFileWatcher = Unchecked.defaultof<IFileWatcher> with get, set
     
-    override this.Program = Program.mkProgram initModel update view
+    override this.Program =
+        Program.mkProgram initModel update view

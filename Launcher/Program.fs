@@ -13,6 +13,7 @@ open Bolero
 open Microsoft.Extensions.Logging
 open Microsoft.Extensions.Logging.Console
 open WebWindows.Blazor
+open FSharp.Data.LiteralProviders
 
 type D() =
     interface IDisposable with
@@ -52,5 +53,7 @@ type Startup() =
 [<EntryPoint>]
 let main argv =
     printfn "Hello World from F#!"
-    ComponentsDesktop.Run<Startup>("Purple", "wwwroot/index.html")
+//    ComponentsDesktop.Run<Startup>("Purple", "wwwroot/index.html")
+
+    ComponentsDesktop.RunWithStringContent<Startup>("Purple", TextFile.wwwroot.``index.html``.Text)
     0 // return an integer exit code

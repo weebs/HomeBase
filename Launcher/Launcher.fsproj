@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="Test.fsx" />
+        <None Include="load.fsx" />
         <Compile Include="Services\FileWatcher.fs" />
         <Compile Include="React.fs" />
         <Compile Include="Programs\Models.fs" />

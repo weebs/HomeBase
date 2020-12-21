@@ -184,9 +184,9 @@
 #r @"/usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/3.1.0/ref/netcoreapp3.1/System.Xml.XmlSerializer.dll"
 #r @"/usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/3.1.0/ref/netcoreapp3.1/System.Xml.XPath.dll"
 #r @"/usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/3.1.0/ref/netcoreapp3.1/System.Xml.XPath.XDocument.dll"
-#r @"/home/dave/.nuget/packages/webwindow.blazor/0.1.0-20200807.1/lib/netcoreapp3.0/WebWindow.Blazor.dll"
-#r @"/home/dave/.nuget/packages/webwindow/0.1.0-20200807.1/lib/netstandard2.1/WebWindow.dll"
 #r @"/usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/3.1.0/ref/netcoreapp3.1/WindowsBase.dll"
+#r @"/home/dave/code/WebWindow/src/WebWindow.Blazor/bin/Debug/netcoreapp3.1/WebWindow.Blazor.dll"
+#r @"/home/dave/code/WebWindow/src/WebWindow/bin/Debug/netstandard2.1/WebWindow.dll"
 // todo: #r @"/home/dave/code/HomeBase/Launcher/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native/WebWindow.Native.so"
 
 #load "Services/FileWatcher.fs"
