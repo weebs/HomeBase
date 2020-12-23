@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebWindow.Blazor", "..\WebW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebWindow.Blazor.JS", "..\WebWindow\src\WebWindow.Blazor.JS\WebWindow.Blazor.JS.csproj", "{B388E7F6-3B51-41FA-B995-7876C387AE55}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Audio", "Audio\Audio.fsproj", "{AC63BC51-881D-4DDD-B017-EABAD18B5E8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libsoundio-sharp", "libsoundio-sharp\libsoundio-sharp\libsoundio-sharp.csproj", "{70E99493-871E-473D-B156-E8CA4AD7244A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +64,13 @@ Global
 		{B388E7F6-3B51-41FA-B995-7876C387AE55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B388E7F6-3B51-41FA-B995-7876C387AE55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B388E7F6-3B51-41FA-B995-7876C387AE55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC63BC51-881D-4DDD-B017-EABAD18B5E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC63BC51-881D-4DDD-B017-EABAD18B5E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC63BC51-881D-4DDD-B017-EABAD18B5E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC63BC51-881D-4DDD-B017-EABAD18B5E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70E99493-871E-473D-B156-E8CA4AD7244A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E99493-871E-473D-B156-E8CA4AD7244A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E99493-871E-473D-B156-E8CA4AD7244A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E99493-871E-473D-B156-E8CA4AD7244A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
