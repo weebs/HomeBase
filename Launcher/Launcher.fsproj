@@ -2,11 +2,14 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="load.fsx" />
+        <None Include="load5.fsx" />
+        <None Include="projdef.fsx" />
+        <None Include="play.fsx" />
         <Compile Include="Services\FileWatcher.fs" />
         <Compile Include="React.fs" />
         <Compile Include="Programs\Models.fs" />
@@ -14,6 +17,7 @@
         <Compile Include="Programs\OrgMode\Models.fs" />
         <Compile Include="Programs\OrgMode\Program.fs" />
         <Compile Include="Programs\MovingLineSvg.fs" />
+        <Compile Include="Programs\AudioView.fs" />
         <None Include="Generated.fs">
             <MyriadFile>Programs\MovingBall.fs</MyriadFile>
             <MyriadNameSpace>Test</MyriadNameSpace>
@@ -46,5 +50,6 @@
     
     <ItemGroup>
       <ProjectReference Include="..\..\WebWindow\src\WebWindow.Blazor\WebWindow.Blazor.csproj" />
+      <ProjectReference Include="..\Audio\Audio.fsproj" />
     </ItemGroup>
 </Project>

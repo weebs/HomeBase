@@ -189,18 +189,5 @@
 #r @"/home/dave/code/WebWindow/src/WebWindow/bin/Debug/netstandard2.1/WebWindow.dll"
 // todo: #r @"/home/dave/code/HomeBase/Launcher/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native/WebWindow.Native.so"
 
-#load "Services/FileWatcher.fs"
-#load "Programs/Models.fs"
-#load "Programs/MovingBall.fs"
-#load "Programs/MovingLineSvg.fs"
-#load "Programs/OrgMode/Models.fs"
-#load "Programs/OrgMode/Program.fs"
-#load "Home.fs"
-#load "Program.fs"
-
 #I @"/home/dave/code/HomeBase/Launcher/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native"
 
-open System
-open WebWindows.Blazor
-
-ComponentsDesktop.Run<Program.Startup>("Purple", "/home/dave/code/HomeBase/Launcher/wwwroot/index.html")

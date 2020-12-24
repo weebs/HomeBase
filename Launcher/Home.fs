@@ -15,6 +15,7 @@ type Page =
     | MovingBall
     | OrgMode
     | MovingLine
+    | AudioView
     
 type AppModel = { page: Page; count: int }
 
@@ -60,6 +61,7 @@ let view model dispatch =
         ]
     | MovingBall -> code [] [ text "todo: moving ball" ]
     | MovingLine -> Node.Component(typeof<MovingLineSvg.Program>, [], [])
+    | AudioView -> AudioView.showWavForm (Audio.Wav.readWavData "/home/dave/Downloads/Glitch_5.wav")
 //    | _ -> code [] [ text "Unknown" ]
 
 type IWKJSRuntime =

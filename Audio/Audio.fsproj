@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Wav.fs" />
         <Compile Include="Program.fs" />
         <None Include="load.fsx" />
     </ItemGroup>
