@@ -52,6 +52,12 @@ let view model dispatch =
                     text "Moving Line"
                 ]
             ]
+            li [] [
+                a [ attr.href "#"
+                    on.click (fun _ -> dispatch << SwitchPage <| AudioView) ] [
+                    text "Waveform Viewer"
+                ]
+            ]
         ]
     | OrgMode ->
         concat [
@@ -61,7 +67,7 @@ let view model dispatch =
         ]
     | MovingBall -> code [] [ text "todo: moving ball" ]
     | MovingLine -> Node.Component(typeof<MovingLineSvg.Program>, [], [])
-    | AudioView -> AudioView.showWavForm (Audio.Wav.readWavData "/home/dave/Downloads/Glitch_5.wav")
+    | AudioView -> AudioView.showWavForm 500 100 2.8f (Audio.Wav.readWavData "/home/dave/Downloads/Glitch_5.wav")
 //    | _ -> code [] [ text "Unknown" ]
 
 type IWKJSRuntime =

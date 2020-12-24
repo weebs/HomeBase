@@ -35,6 +35,7 @@ type Startup() =
 
     // This method gets called by the runtime. Use this method to add services to the container.
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+    static member val _T = typeof<Home.Component> with get, set
     member this.ConfigureServices(services: IServiceCollection) =
         services
             .Remove(ServiceDescriptor(typeof<ILoggerFactory>, typeof<ConsoleLoggerProvider>))
@@ -45,7 +46,7 @@ type Startup() =
             .AddSingleton<IFileWatcher>(FileWatcher())
         |> ignore
     member this.Configure(app: DesktopApplicationBuilder) =
-        app.AddComponent<Home.Component>("app")
+        app.AddComponent(Startup._T, "app")
 //        app.AddComponent<Purple.Burps.Client.Main.MyApp>("app")
 //        app.AddComponent<MovingBall.SimpleApp>("app")
 
