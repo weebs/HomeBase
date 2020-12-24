@@ -30,6 +30,7 @@
         
         <Content Include="Javascript\common.js" />
         <Compile Include="Program.fs" />
+        <Compile Include="LensTest.fs" />
     </ItemGroup>
     
     <ItemGroup>
