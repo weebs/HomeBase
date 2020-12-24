@@ -26,8 +26,8 @@ type AppMsg =
 let initModel (p: ProgramComponent<_,_>) =
     let f _ = 
         async {
-            let! x = p.JSRuntime.InvokeAsync<string>("prompt", "enter something").AsTask() |> Async.AwaitTask
-            do! p.JSRuntime.InvokeVoidAsync("console.log", x).AsTask() |> Async.AwaitTask
+//            let! x = p.JSRuntime.InvokeAsync<string>("prompt", "enter something").AsTask() |> Async.AwaitTask
+            do! p.JSRuntime.InvokeVoidAsync("console.log", "Hello, from .NET!").AsTask() |> Async.AwaitTask
         }
     { page = Home; count = 0 }, Cmd.OfAsync.perform f () (fun _ -> Inc)
 
